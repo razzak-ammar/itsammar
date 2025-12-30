@@ -24,3 +24,76 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom motion + glass treatments for the showcase */
+.hero-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px, 60px 60px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.7), transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.7), transparent 70%);
+}
+
+.aurora-blob {
+  width: 28rem;
+  height: 28rem;
+  background: radial-gradient(circle at 30% 30%, rgba(45, 212, 191, 0.28), transparent 42%);
+  filter: blur(48px);
+  opacity: 0.9;
+  animation: aurora 16s ease-in-out infinite alternate;
+}
+
+.aurora-blob-alt {
+  background: radial-gradient(circle at 70% 40%, rgba(14, 165, 233, 0.2), transparent 45%);
+  animation-duration: 18s;
+}
+
+.glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 18, 30, 0.65);
+  box-shadow: 0 25px 120px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px);
+  border-radius: 1.25rem;
+}
+
+.float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.float-delayed {
+  animation: float 9s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+@keyframes aurora {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(12px, -20px, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(-24px, 16px, 0) scale(1.02);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
