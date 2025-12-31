@@ -2,26 +2,26 @@ import ScrollAnimation from "./ScrollAnimation";
 
 function Projects() {
     // Placeholder projects data
-    const projects = [
-        {
-            id: 1,
-            title: "Project Title 1",
-            description: "A brief description of your project goes here. This showcases what the project does and its key features.",
-            tags: ["React", "TypeScript", "Next.js"],
-        },
-        {
-            id: 2,
-            title: "Project Title 2",
-            description: "Another project description. Highlight the technologies used and the problem it solves.",
-            tags: ["Python", "Data Science", "Machine Learning"],
-        },
-        {
-            id: 3,
-            title: "Project Title 3",
-            description: "Description of your third project. Keep it concise and impactful.",
-            tags: ["JavaScript", "Node.js", "API"],
-        },
-    ];
+    // const projects = [
+    //     {
+    //         id: 1,
+    //         title: "Project Title 1",
+    //         description: "A brief description of your project goes here. This showcases what the project does and its key features.",
+    //         tags: ["React", "TypeScript", "Next.js"],
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Project Title 2",
+    //         description: "Another project description. Highlight the technologies used and the problem it solves.",
+    //         tags: ["Python", "Data Science", "Machine Learning"],
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "Project Title 3",
+    //         description: "Description of your third project. Keep it concise and impactful.",
+    //         tags: ["JavaScript", "Node.js", "API"],
+    //     },
+    // ];
 
     return (
         <section id="projects" className="py-20 container mx-auto px-4">

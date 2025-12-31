@@ -11,7 +11,7 @@ export default function Footer() {
                         {/* Brand Section */}
                         <div className="text-center md:text-left">
                             <h3 className="text-xl font-bold mb-3">
-                                it's <span className="text-teal-400">Ammar</span>
+                                it&apos;s <span className="text-teal-400">Ammar</span>
                             </h3>
                             <p className="text-gray-400 text-sm font-light leading-relaxed">
                                 Building tools and systems at the intersection of biology, data science, and engineering.
@@ -67,7 +67,7 @@ export default function Footer() {
                                     <Github size={20} />
                                 </Link>
                                 <Link
-                                    href="https://www.linkedin.com/in/itsammar-dev/"
+                                    href="https://www.linkedin.com/in/ammar-razzak/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-400 hover:text-teal-400 transition-all duration-300 hover:scale-110"

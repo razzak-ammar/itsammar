@@ -20,7 +20,7 @@ function Navbar() {
       {/* Mobile Navbar */}
       <div className="flex justify-between items-center md:hidden">
         <h1 className="font-bold text-2xl">
-          it's<span className="text-teal-500">ammar</span>
+          it&apos;s<span className="text-teal-500">ammar</span>
         </h1>
         <button
           onClick={toggleMobileMenu}
@@ -100,7 +100,7 @@ function Navbar() {
                   <Github size={24} />
                 </Link>
                 <Link
-                  href="https://www.linkedin.com/in/itsammar-dev/"
+                  href="https://www.linkedin.com/in/ammar-razzak/"
                   onClick={closeMobileMenu}
                   className="hover:text-teal-500 transition-all duration-300 hover:scale-110"
                   aria-label="LinkedIn"
@@ -124,7 +124,7 @@ function Navbar() {
       {/* Desktop Navbar */}
       <div className="hidden md:flex justify-between items-center">
         <h1 className="font-bold text-3xl mr-8">
-          it's<span className="text-teal-500">ammar</span>
+          it&apos;s<span className="text-teal-500">ammar</span>
         </h1>
         <div className="navbar-items flex gap-4 text-lg">
           <div className="navbar-item">
@@ -165,7 +165,7 @@ function Navbar() {
           </div>
           <div className="navbar-item cursor-pointer">
             <Link
-              href="https://www.linkedin.com/in/itsammar-dev/"
+              href="https://www.linkedin.com/in/ammar-razzak/"
               className="hover:text-teal-500 transition-colors duration-300"
             >
               <Linkedin /> <span className="sr-only">LinkedIn</span>

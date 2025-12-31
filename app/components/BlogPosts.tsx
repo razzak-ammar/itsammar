@@ -2,29 +2,29 @@ import ScrollAnimation from "./ScrollAnimation";
 
 function BlogPosts() {
     // Placeholder blog posts data
-    const blogPosts = [
-        {
-            id: 1,
-            title: "Blog Post Title 1",
-            excerpt: "A preview excerpt of your blog post. This gives readers a taste of what the full article contains.",
-            date: "January 2024",
-            readTime: "5 min read",
-        },
-        {
-            id: 2,
-            title: "Blog Post Title 2",
-            excerpt: "Another blog post preview. Share insights about your research, thoughts, or experiences.",
-            date: "December 2023",
-            readTime: "8 min read",
-        },
-        {
-            id: 3,
-            title: "Blog Post Title 3",
-            excerpt: "Your third blog post excerpt. Keep it engaging and informative to draw readers in.",
-            date: "November 2023",
-            readTime: "6 min read",
-        },
-    ];
+    // const blogPosts = [
+    //     {
+    //         id: 1,
+    //         title: "Blog Post Title 1",
+    //         excerpt: "A preview excerpt of your blog post. This gives readers a taste of what the full article contains.",
+    //         date: "January 2024",
+    //         readTime: "5 min read",
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Blog Post Title 2",
+    //         excerpt: "Another blog post preview. Share insights about your research, thoughts, or experiences.",
+    //         date: "December 2023",
+    //         readTime: "8 min read",
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "Blog Post Title 3",
+    //         excerpt: "Your third blog post excerpt. Keep it engaging and informative to draw readers in.",
+    //         date: "November 2023",
+    //         readTime: "6 min read",
+    //     },
+    // ];
 
     return (
         <section id="blog" className="py-20 container mx-auto px-4">
