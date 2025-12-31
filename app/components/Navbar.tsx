@@ -40,7 +40,7 @@ function Navbar() {
             {/* Mobile Menu Header */}
             <div className="flex justify-between items-center p-6 border-b border-gray-800 mobile-menu-item">
               <h1 className="font-bold text-2xl">
-                it's<span className="text-teal-500">ammar</span>
+                it&apos;s<span className="text-teal-500">ammar</span>
               </h1>
               <button
                 onClick={closeMobileMenu}
