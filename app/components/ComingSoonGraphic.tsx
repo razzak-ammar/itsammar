@@ -8,7 +8,7 @@ export default function ComingSoonGraphic({ label, note, index }: ComingSoonGrap
   return (
     <div className="coming-soon-rail group relative overflow-hidden border-y border-white/10 py-8 md:py-10">
       <div className="relative z-10 grid items-center gap-6 md:grid-cols-[auto_1fr_auto]">
-        <span className="font-mono text-[0.65rem] tracking-[0.25em] text-violet-300/70">
+        <span className="font-mono text-[0.65rem] tracking-[0.25em] text-[#b99a5e]/80">
           {index}
         </span>
         <div>
@@ -17,8 +17,8 @@ export default function ComingSoonGraphic({ label, note, index }: ComingSoonGrap
             {note}
           </p>
         </div>
-        <div className="flex items-center gap-3 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-violet-300">
-          <span className="coming-soon-dot h-2 w-2 rounded-full bg-violet-300" />
+        <div className="flex items-center gap-3 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-[#c5a96d]">
+          <span className="coming-soon-dot h-2 w-2 rounded-full bg-[#b99a5e]" />
           In progress
         </div>
       </div>

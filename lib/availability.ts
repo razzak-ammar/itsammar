@@ -7,6 +7,12 @@ export type AvailabilityEvent = {
   allDay?: boolean;
 };
 
+export type AvailabilityResult = {
+  events: AvailabilityEvent[];
+  isDemo: boolean;
+  isUnavailable: boolean;
+};
+
 type GoogleCalendarEvent = {
   id: string;
   summary?: string;
@@ -47,11 +53,13 @@ export function parseAvailabilitySummary(summary: string | undefined, transparen
   return { title, category };
 }
 
-export async function getAvailability(): Promise<AvailabilityEvent[]> {
+export async function getAvailability(): Promise<AvailabilityResult> {
   const calendarId = process.env.GOOGLE_CALENDAR_ID;
   const apiKey = process.env.GOOGLE_CALENDAR_API_KEY;
 
-  if (!calendarId || !apiKey) return demoEvents;
+  if (!calendarId || !apiKey) {
+    return { events: demoEvents, isDemo: true, isUnavailable: false };
+  }
 
   const rangeStart = new Date();
   rangeStart.setHours(0, 0, 0, 0);
@@ -66,26 +74,36 @@ export async function getAvailability(): Promise<AvailabilityEvent[]> {
     maxResults: "100",
   });
 
-  const response = await fetch(
-    `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?${params}`,
-    { next: { revalidate: 300 } },
-  );
+  try {
+    const response = await fetch(
+      `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?${params}`,
+      { next: { revalidate: 300 } },
+    );
 
-  if (!response.ok) throw new Error("Availability is temporarily unavailable.");
+    if (!response.ok) {
+      console.error("Google Calendar availability request failed.", { status: response.status });
+      return { events: [], isDemo: false, isUnavailable: true };
+    }
 
-  const data = (await response.json()) as GoogleCalendarResponse;
-  return (data.items ?? [])
-    .filter((event) => event.status !== "cancelled" && (event.start?.dateTime || event.start?.date))
-    .map((event) => {
-      const parsed = parseAvailabilitySummary(event.summary, event.transparency);
-      return {
-        id: event.id,
-        // Bracket labels classify the event but are never exposed to visitors.
-        title: parsed.title,
-        category: parsed.category,
-        start: event.start?.dateTime || event.start?.date || "",
-        end: event.end?.dateTime || event.end?.date || event.start?.dateTime || event.start?.date || "",
-        allDay: Boolean(event.start?.date),
-      };
-    });
+    const data = (await response.json()) as GoogleCalendarResponse;
+    const events = (data.items ?? [])
+      .filter((event) => event.status !== "cancelled" && (event.start?.dateTime || event.start?.date))
+      .map((event) => {
+        const parsed = parseAvailabilitySummary(event.summary, event.transparency);
+        return {
+          id: event.id,
+          // Bracket labels classify the event but are never exposed to visitors.
+          title: parsed.title,
+          category: parsed.category,
+          start: event.start?.dateTime || event.start?.date || "",
+          end: event.end?.dateTime || event.end?.date || event.start?.dateTime || event.start?.date || "",
+          allDay: Boolean(event.start?.date),
+        };
+      });
+
+    return { events, isDemo: false, isUnavailable: false };
+  } catch (error) {
+    console.error("Google Calendar availability request failed.", error);
+    return { events: [], isDemo: false, isUnavailable: true };
+  }
 }

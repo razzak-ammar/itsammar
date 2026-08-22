@@ -32,7 +32,7 @@ function BlogPosts() {
             <ScrollAnimation direction="up">
                 <div className="mb-12 md:flex md:items-end md:justify-between">
                     <div>
-                      <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-teal-300">03 / Notes</p>
+                      <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-[#70b8b0]">03 / Notes</p>
                       <h2 className="text-4xl font-semibold tracking-tight md:text-6xl">Writing & ideas</h2>
                     </div>
                     <p className="mt-5 max-w-md text-gray-400 font-light md:mt-0">

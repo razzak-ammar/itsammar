@@ -11,7 +11,7 @@ export default function Footer() {
                         {/* Brand Section */}
                         <div className="text-center md:text-left">
                             <h3 className="text-xl font-bold mb-3">
-                                it&apos;s <span className="text-teal-400">Ammar</span>
+                                it&apos;s <span className="text-[#70b8b0]">Ammar</span>
                             </h3>
                             <p className="text-gray-400 text-sm font-light leading-relaxed">
                                 Building tools and systems at the intersection of biology, data science, and engineering.
@@ -61,7 +61,7 @@ export default function Footer() {
                                     href="https://github.com/itsammar-dev"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-violet-300"
+                                    className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-[#b99a5e]"
                                     aria-label="GitHub"
                                 >
                                     <Github size={20} />
@@ -70,7 +70,7 @@ export default function Footer() {
                                     href="https://www.linkedin.com/in/ammar-razzak/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-violet-300"
+                                    className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-[#b99a5e]"
                                     aria-label="LinkedIn"
                                 >
                                     <Linkedin size={20} />
@@ -79,7 +79,7 @@ export default function Footer() {
                                     href="https://medium.com/@itsammar"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-violet-300"
+                                    className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-[#b99a5e]"
                                     aria-label="Medium"
                                 >
                                     <BookText size={20} />
@@ -87,7 +87,7 @@ export default function Footer() {
                             </div>
                             <a
                                 href="mailto:contact@example.com"
-                                className="inline-flex items-center gap-2 text-sm text-gray-400 transition-colors duration-300 hover:text-violet-300"
+                                className="inline-flex items-center gap-2 text-sm text-gray-400 transition-colors duration-300 hover:text-[#b99a5e]"
                             >
                                 <Mail size={16} />
                                 Get in touch

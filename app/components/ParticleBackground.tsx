@@ -8,7 +8,7 @@ interface Particle {
     vx: number;
     vy: number;
     radius: number;
-    color: "teal" | "violet";
+    color: "teal" | "sand";
 }
 
 function ParticleBackground() {
@@ -43,7 +43,7 @@ function ParticleBackground() {
                 vx: (Math.random() - 0.5) * 0.5,
                 vy: (Math.random() - 0.5) * 0.5,
                 radius: Math.random() * 2 + 1,
-                color: Math.random() > 0.52 ? "violet" : "teal",
+                color: Math.random() > 0.52 ? "sand" : "teal",
             });
         }
 
@@ -94,9 +94,9 @@ function ParticleBackground() {
                 // Draw particle
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-                ctx.fillStyle = particle.color === "violet"
-                    ? "rgba(167, 139, 250, 0.52)"
-                    : "rgba(45, 212, 191, 0.48)";
+                ctx.fillStyle = particle.color === "sand"
+                    ? "rgba(185, 154, 94, 0.44)"
+                    : "rgba(88, 169, 160, 0.42)";
                 ctx.fill();
 
                 // Draw connections
@@ -109,9 +109,9 @@ function ParticleBackground() {
                     if (distance < connectionDistance) {
                         const opacity = (1 - distance / connectionDistance) * 0.3;
                         ctx.beginPath();
-                        const connectionColor = particle.color === "violet"
-                            ? `rgba(139, 92, 246, ${opacity * 0.82})`
-                            : `rgba(45, 212, 191, ${opacity * 0.72})`;
+                        const connectionColor = particle.color === "sand"
+                            ? `rgba(185, 154, 94, ${opacity * 0.68})`
+                            : `rgba(88, 169, 160, ${opacity * 0.64})`;
                         ctx.strokeStyle = connectionColor;
                         ctx.lineWidth = 1;
                         ctx.moveTo(particle.x, particle.y);
@@ -125,9 +125,9 @@ function ParticleBackground() {
                 if (mouseDistance < 140) {
                     const opacity = (1 - mouseDistance / 140) * 0.5;
                     ctx.beginPath();
-                    ctx.strokeStyle = particle.color === "violet"
-                        ? `rgba(167, 139, 250, ${opacity * 0.8})`
-                        : `rgba(45, 212, 191, ${opacity * 0.72})`;
+                    ctx.strokeStyle = particle.color === "sand"
+                        ? `rgba(185, 154, 94, ${opacity * 0.68})`
+                        : `rgba(88, 169, 160, ${opacity * 0.64})`;
                     ctx.lineWidth = 1.5;
                     ctx.moveTo(particle.x, particle.y);
                     ctx.lineTo(mouse.x, mouse.y);

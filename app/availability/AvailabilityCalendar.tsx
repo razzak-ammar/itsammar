@@ -50,7 +50,7 @@ function useMobile() {
   return isMobile;
 }
 
-export default function AvailabilityCalendar({ events, isDemo }: { events: AvailabilityEvent[]; isDemo: boolean }) {
+export default function AvailabilityCalendar({ events, isDemo, isUnavailable }: { events: AvailabilityEvent[]; isDemo: boolean; isUnavailable: boolean }) {
   const [anchor, setAnchor] = useState(() => startOfDay(new Date()));
   const [view, setView] = useState<CalendarView>("threeDay");
   const isMobile = useMobile();
@@ -92,6 +92,7 @@ export default function AvailabilityCalendar({ events, isDemo }: { events: Avail
         <div className="flex min-w-0 items-center gap-2.5">
           <h1 className="text-xl font-semibold tracking-[-0.03em] text-white sm:text-3xl">Availability</h1>
           {isDemo && <span className="border border-amber-300/20 px-1.5 py-0.5 font-mono text-[8px] tracking-[0.15em] text-amber-200/70">DEMO</span>}
+          {isUnavailable && <span className="border border-amber-300/20 px-1.5 py-0.5 font-mono text-[8px] tracking-[0.15em] text-amber-200/70">TEMPORARILY UNAVAILABLE</span>}
         </div>
         <div className="ml-auto flex items-center gap-2">
           <div className="calendar-view-switcher" aria-label="Calendar view">

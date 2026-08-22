@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 };
 
 export default async function AvailabilityPage() {
-  const events = await getAvailability();
+  const availability = await getAvailability();
 
   return (
     <main className="min-h-screen bg-[#03050a] text-white">
       <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-3 pb-3 sm:px-6 sm:pb-6 lg:px-8">
         <Navbar />
-        <AvailabilityCalendar events={events} isDemo={!process.env.GOOGLE_CALENDAR_ID} />
+        <AvailabilityCalendar {...availability} />
       </div>
     </main>
   );

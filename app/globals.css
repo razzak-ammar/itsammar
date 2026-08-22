@@ -30,7 +30,7 @@ html {
 }
 
 ::selection {
-  background: rgba(167, 139, 250, 0.28);
+  background: rgba(185, 154, 94, 0.28);
   color: #fff;
 }
 
@@ -38,7 +38,7 @@ html {
   content: "";
   position: absolute;
   inset: -1.15rem;
-  border: 1px dashed rgba(196, 181, 253, 0.28);
+  border: 1px dashed rgba(197, 169, 109, 0.3);
   border-radius: 999px;
   animation: orbit-spin 34s linear infinite;
 }
@@ -51,8 +51,8 @@ html {
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 999px;
-  background: #c4b5fd;
-  box-shadow: 0 0 22px rgba(167, 139, 250, 0.7);
+  background: #c5a96d;
+  box-shadow: 0 0 20px rgba(185, 154, 94, 0.55);
 }
 
 .coming-soon-signal {
@@ -60,8 +60,8 @@ html {
     110deg,
     transparent 0,
     transparent 14px,
-    rgba(167, 139, 250, 0.15) 15px,
-    rgba(167, 139, 250, 0.15) 16px
+    rgba(185, 154, 94, 0.14) 15px,
+    rgba(185, 154, 94, 0.14) 16px
   );
   transform: translateX(-45%);
   transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -80,8 +80,8 @@ html {
 }
 
 @keyframes signal-pulse {
-  0%, 100% { opacity: 0.35; box-shadow: 0 0 0 0 rgba(167, 139, 250, 0); }
-  50% { opacity: 1; box-shadow: 0 0 0 6px rgba(167, 139, 250, 0.08); }
+  0%, 100% { opacity: 0.35; box-shadow: 0 0 0 0 rgba(185, 154, 94, 0); }
+  50% { opacity: 1; box-shadow: 0 0 0 6px rgba(185, 154, 94, 0.08); }
 }
 
 /* Custom motion + glass treatments for the showcase */

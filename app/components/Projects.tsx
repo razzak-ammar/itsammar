@@ -29,7 +29,7 @@ function Projects() {
             <ScrollAnimation direction="up">
                 <div className="mb-12 md:flex md:items-end md:justify-between">
                     <div>
-                      <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-violet-300">02 / Projects</p>
+                      <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-[#b99a5e]">02 / Projects</p>
                       <h2 className="text-4xl font-semibold tracking-tight md:text-6xl">Selected work</h2>
                     </div>
                     <p className="mt-5 max-w-md text-gray-400 font-light md:mt-0">
