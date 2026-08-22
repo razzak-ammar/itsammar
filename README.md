@@ -72,3 +72,19 @@ after `/link/` on the site:
 
 Those entries are available as `/link/slides` and `/link/backup`. Only `https`
 and `http` destinations are accepted, and an unknown slug returns a 404.
+
+## Availability calendar
+
+`/availability` reads a dedicated public Google Calendar on the server and
+caches it for five minutes. Until credentials are configured, it displays
+clearly labeled demo data.
+
+Add these variables in Netlify (with the **Functions** scope):
+
+```bash
+GOOGLE_CALENDAR_ID="your-public-calendar-id@group.calendar.google.com"
+GOOGLE_CALENDAR_API_KEY="restricted-google-api-key"
+```
+
+Enable the Google Calendar API for the key and restrict it to that API. Keep
+the key server-only; it is never exposed to the browser.
