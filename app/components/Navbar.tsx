@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Github, Linkedin, BookText, Menu, X } from "lucide-react";
 import { useState } from "react";
 
-function Navbar() {
+function Navbar({ wide = false }: { wide?: boolean }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -104,7 +104,7 @@ function Navbar() {
       )}
 
       {/* Desktop Navbar */}
-      <div className="mx-auto hidden max-w-6xl items-center justify-between md:flex">
+      <div className={`mx-auto hidden items-center justify-between md:flex ${wide ? "max-w-none" : "max-w-6xl"}`}>
         <Link href="/#home" className="mr-8 text-3xl font-bold">
           it&apos;s<span className="text-[#58a9a0]">ammar</span>
         </Link>
