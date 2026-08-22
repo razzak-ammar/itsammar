@@ -2,9 +2,9 @@ import Image from "next/image";
 import ScrollAnimation from "./ScrollAnimation";
 
 const focusAreas = [
-  "Trauma neuroscience",
-  "Physiological signal processing",
-  "Wearable health technology",
+  "Quantitative problem-solving",
+  "Software + systems",
+  "Teaching + mentorship",
 ];
 
 export default function About() {
@@ -39,24 +39,23 @@ export default function About() {
             01 / About
           </p>
           <h2 className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-white md:text-6xl">
-            Studying the signals between body, brain, and behavior.
+            Curiosity takes me across disciplines.
           </h2>
           <div className="mt-8 max-w-2xl space-y-5 text-base font-light leading-relaxed text-gray-300 md:text-lg">
             <p>
               I&apos;m a rising senior at Emory University double majoring in Applied Mathematics and
-              Chemistry on the pre-MD/PhD track. In Dr. Negar Fani&apos;s trauma neuroscience lab, I study
-              autonomic regulation and PTSD through psychophysiology, neuroimaging, and computational work.
+              Chemistry on the pre-MD/PhD track. I&apos;m most energized by work that combines analytical
+              thinking, creativity, and tangible impact.
             </p>
             <p>
-              I build pipelines for physiological signals including ECG, HRV, EDA, and respiration, and
-              contribute to wearable technology designed to support new approaches to trauma treatment.
-              Research gives me a place to ask difficult questions, build useful tools, and work toward
-              direct clinical impact.
+              At Emory, I analyze physiological data in Dr. Negar Fani&apos;s lab, teach quantum chemistry,
+              and have worked on applied AI research with the Chemistry Department. Outside campus, I build
+              software and operational systems for local businesses and tutor and mentor students.
             </p>
             <p>
-              Beyond the lab, I teach quantum chemistry, tutor and mentor students, and build software and
-              operational systems for local businesses. I also previously served in finance and operations
-              leadership with the Global Indigenous Health Coalition through July 2026.
+              I also previously served in finance and operations leadership with the Global Indigenous
+              Health Coalition through July 2026. Whether I&apos;m working with data, code, a classroom, or a
+              team, I like taking complicated problems and building something useful from them.
             </p>
           </div>
 

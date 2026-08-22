@@ -34,21 +34,25 @@ const demoEvents: AvailabilityEvent[] = [
 ];
 
 const FREE_TAGS = new Set(["free", "available", "availability", "open"]);
-const BUSY_TAGS = new Set(["busy", "meeting", "call", "focus", "unavailable"]);
+const BUSY_TAGS = new Set([
+  "busy", "class", "lecture", "lab", "meeting", "call", "focus", "work", "appointment", "interview", "travel", "unavailable",
+]);
+const FREE_KEYWORDS = /\b(free|available|availability|open|office hours)\b/i;
+const BUSY_KEYWORDS = /\b(class|lecture|lab|meeting|call|busy|unavailable|focus|deep work|project|appointment|interview|break|breather|work|travel)\b/i;
 
 export function parseAvailabilitySummary(summary: string | undefined, transparency?: "opaque" | "transparent") {
   const original = summary?.trim() || "Unavailable";
   const tags = [...original.matchAll(/\[([^\]]+)\]/g)].map((match) => match[1].trim().toLowerCase()).filter(Boolean);
   const title = original.replace(/\s*\[[^\]]+\]\s*/g, " ").replace(/\s{2,}/g, " ").trim() || "Unavailable";
-  const explicitFree = tags.find((tag) => FREE_TAGS.has(tag));
-  const explicitBusy = tags.find((tag) => BUSY_TAGS.has(tag));
-
-  let category = explicitFree ? "free" : explicitBusy ? "busy" : tags[0];
-  if (!category) {
-    if (/\b(free|available|availability|open|office hours)\b/i.test(title) || transparency === "transparent") category = "free";
-    else if (/\b(meeting|call|busy|unavailable|focus|deep work|project|appointment|interview|break|breather)\b/i.test(title)) category = "busy";
-    else category = "busy";
-  }
+  // A bracket label is an intentional override. It is removed from the displayed title.
+  const taggedCategory = tags.find((tag) => FREE_TAGS.has(tag) || BUSY_TAGS.has(tag));
+  const category = taggedCategory
+    ? FREE_TAGS.has(taggedCategory) ? "free" : "busy"
+    : FREE_KEYWORDS.test(title)
+      ? "free"
+      : BUSY_KEYWORDS.test(title)
+        ? "busy"
+        : transparency === "transparent" ? "free" : "general";
 
   return { title, category };
 }
@@ -81,7 +85,14 @@ export async function getAvailability(): Promise<AvailabilityResult> {
     );
 
     if (!response.ok) {
-      console.error("Google Calendar availability request failed.", { status: response.status });
+      const responseBody = await response.json().catch(() => null) as {
+        error?: { message?: string; errors?: Array<{ reason?: string }> };
+      } | null;
+      console.error("Google Calendar availability request failed.", {
+        status: response.status,
+        reason: responseBody?.error?.errors?.[0]?.reason,
+        message: responseBody?.error?.message,
+      });
       return { events: [], isDemo: false, isUnavailable: true };
     }
 
