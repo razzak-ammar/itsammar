@@ -81,7 +81,7 @@ export async function getAvailability(): Promise<AvailabilityResult> {
   try {
     const response = await fetch(
       `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?${params}`,
-      { next: { revalidate: 300 } },
+      { cache: "no-store" },
     );
 
     if (!response.ok) {
