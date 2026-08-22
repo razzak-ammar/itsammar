@@ -5,6 +5,10 @@ import { getAvailability } from "@/lib/availability";
 
 export const revalidate = 300;
 
+// Calendar data is fetched from Google. Rendering this route on demand keeps a
+// temporary upstream API failure from failing the whole Netlify deployment.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Availability | It's Ammar.",
   description: "Ammar's current availability.",

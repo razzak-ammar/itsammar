@@ -1,4 +1,5 @@
 import ScrollAnimation from "./ScrollAnimation";
+import ComingSoonGraphic from "./ComingSoonGraphic";
 
 function Projects() {
     // Placeholder projects data
@@ -24,19 +25,25 @@ function Projects() {
     // ];
 
     return (
-        <section id="projects" className="py-20 container mx-auto px-4">
+        <section id="projects" className="scroll-mt-24 mx-auto max-w-6xl px-4 py-24 md:py-32">
             <ScrollAnimation direction="up">
-                <div className="mb-12">
-                    <h2 className="text-4xl font-bold mb-4">
-                        <span className="text-teal-400">Projects</span>
-                    </h2>
-                    <p className="text-gray-300 font-light max-w-2xl">
-                        coming soon...
+                <div className="mb-12 md:flex md:items-end md:justify-between">
+                    <div>
+                      <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-violet-300">02 / Projects</p>
+                      <h2 className="text-4xl font-semibold tracking-tight md:text-6xl">Selected work</h2>
+                    </div>
+                    <p className="mt-5 max-w-md text-gray-400 font-light md:mt-0">
+                        Experiments, research tools, and technical builds are being documented now.
                     </p>
                 </div>
             </ScrollAnimation>
-
-
+            <ScrollAnimation direction="up" delay={120}>
+              <ComingSoonGraphic
+                index="001—NOW"
+                label="The project archive is taking shape."
+                note="A considered collection of work, process, and lessons learned will live here soon."
+              />
+            </ScrollAnimation>
             {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {projects.map((project) => (
                     <div
@@ -67,4 +74,3 @@ function Projects() {
 }
 
 export default Projects;
-

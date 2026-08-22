@@ -1,4 +1,5 @@
 import ScrollAnimation from "./ScrollAnimation";
+import ComingSoonGraphic from "./ComingSoonGraphic";
 
 function BlogPosts() {
     // Placeholder blog posts data
@@ -27,20 +28,25 @@ function BlogPosts() {
     // ];
 
     return (
-        <section id="blog" className="py-20 container mx-auto px-4">
+        <section id="blog" className="scroll-mt-24 mx-auto max-w-6xl px-4 py-24 md:py-32">
             <ScrollAnimation direction="up">
-                <div className="mb-12">
-                    <h2 className="text-4xl font-bold mb-4">
-                        <span className="text-teal-400">Blog</span>
-                    </h2>
-                    <p className="text-gray-300 font-light max-w-2xl">
+                <div className="mb-12 md:flex md:items-end md:justify-between">
+                    <div>
+                      <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-teal-300">03 / Notes</p>
+                      <h2 className="text-4xl font-semibold tracking-tight md:text-6xl">Writing & ideas</h2>
+                    </div>
+                    <p className="mt-5 max-w-md text-gray-400 font-light md:mt-0">
                         Thoughts, research findings, and insights on quantitative biomedical research, data science, and engineering.
                     </p>
                 </div>
             </ScrollAnimation>
 
             <ScrollAnimation direction="up" delay={150}>
-                <div>coming soon...</div>
+                <ComingSoonGraphic
+                  index="002—NEXT"
+                  label="Notes are on the way."
+                  note="Short essays on research, systems, and the questions I keep returning to."
+                />
             </ScrollAnimation>
 
             {/* <div className="space-y-6">
@@ -70,4 +76,3 @@ function BlogPosts() {
 }
 
 export default BlogPosts;
-

@@ -61,7 +61,7 @@ export default function Footer() {
                                     href="https://github.com/itsammar-dev"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-teal-400 transition-all duration-300 hover:scale-110"
+                                    className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-violet-300"
                                     aria-label="GitHub"
                                 >
                                     <Github size={20} />
@@ -70,7 +70,7 @@ export default function Footer() {
                                     href="https://www.linkedin.com/in/ammar-razzak/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-teal-400 transition-all duration-300 hover:scale-110"
+                                    className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-violet-300"
                                     aria-label="LinkedIn"
                                 >
                                     <Linkedin size={20} />
@@ -79,7 +79,7 @@ export default function Footer() {
                                     href="https://medium.com/@itsammar"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-teal-400 transition-all duration-300 hover:scale-110"
+                                    className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-violet-300"
                                     aria-label="Medium"
                                 >
                                     <BookText size={20} />
@@ -87,7 +87,7 @@ export default function Footer() {
                             </div>
                             <a
                                 href="mailto:contact@example.com"
-                                className="text-gray-400 text-sm hover:text-teal-400 transition-colors duration-300 inline-flex items-center gap-2"
+                                className="inline-flex items-center gap-2 text-sm text-gray-400 transition-colors duration-300 hover:text-violet-300"
                             >
                                 <Mail size={16} />
                                 Get in touch

@@ -15,8 +15,15 @@ function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  const navItems = [
+    { label: "Home", href: "/#home" },
+    { label: "About", href: "/#about" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Blog", href: "/#blog" },
+  ];
+
   return (
-    <div className="w-full py-6 px-4">
+    <header className="sticky top-0 z-40 w-full border-b border-white/[0.06] bg-gray-950 px-4 py-5 md:bg-gray-950/70 md:backdrop-blur-xl">
       {/* Mobile Navbar */}
       <div className="flex justify-between items-center md:hidden">
         <h1 className="font-bold text-2xl">
@@ -24,7 +31,7 @@ function Navbar() {
         </h1>
         <button
           onClick={toggleMobileMenu}
-          className="p-2 hover:text-teal-500 transition-all duration-300 menu-icon-rotate"
+          className="menu-icon-rotate p-2 transition-all duration-300 hover:text-violet-300"
           aria-label="Toggle menu"
         >
           <div className={`transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-90' : ''}`}>
@@ -35,8 +42,8 @@ function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-gray-950/95 backdrop-blur-sm z-50 md:hidden mobile-menu-overlay">
-          <div className="flex flex-col h-full mobile-menu-content">
+        <div className="mobile-menu-overlay fixed inset-0 z-50 bg-gray-950 md:hidden">
+          <div className="mobile-menu-content relative z-[60] flex h-full flex-col bg-gray-950">
             {/* Mobile Menu Header */}
             <div className="flex justify-between items-center p-6 border-b border-gray-800 mobile-menu-item">
               <h1 className="font-bold text-2xl">
@@ -44,7 +51,7 @@ function Navbar() {
               </h1>
               <button
                 onClick={closeMobileMenu}
-                className="p-2 hover:text-teal-500 transition-all duration-300 hover:rotate-90"
+                className="p-2 transition-all duration-300 hover:rotate-90 hover:text-violet-300"
                 aria-label="Close menu"
               >
                 <X size={24} />
@@ -53,48 +60,23 @@ function Navbar() {
 
             {/* Mobile Menu Items */}
             <nav className="flex flex-col flex-1 p-6 space-y-6">
-              <Link
-                href="/"
-                onClick={closeMobileMenu}
-                className="text-xl hover:text-teal-500 transition-all duration-300 py-2 mobile-menu-item hover:translate-x-2"
-              >
-                Home
-              </Link>
-              <Link
-                href="/"
-                onClick={closeMobileMenu}
-                className="text-xl hover:text-teal-500 transition-all duration-300 py-2 mobile-menu-item hover:translate-x-2"
-              >
-                About
-              </Link>
-              <Link
-                href="/"
-                onClick={closeMobileMenu}
-                className="text-xl hover:text-teal-500 transition-all duration-300 py-2 mobile-menu-item hover:translate-x-2"
-              >
-                Blog
-              </Link>
-              {/* <Link
-                href="/"
-                onClick={closeMobileMenu}
-                className="text-xl hover:text-teal-500 transition-all duration-300 py-2 mobile-menu-item hover:translate-x-2"
-              >
-                Research
-              </Link> */}
-              <Link
-                href="/"
-                onClick={closeMobileMenu}
-                className="text-xl hover:text-teal-500 transition-all duration-300 py-2 mobile-menu-item hover:translate-x-2"
-              >
-                Projects
-              </Link>
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMobileMenu}
+                  className="mobile-menu-item py-2 text-xl transition-all duration-300 hover:translate-x-2 hover:text-violet-300"
+                >
+                  {item.label}
+                </Link>
+              ))}
 
               {/* Social Icons */}
               <div className="flex gap-6 pt-6 border-t border-gray-800 mobile-menu-item">
                 <Link
                   href="https://github.com/itsammar-dev"
                   onClick={closeMobileMenu}
-                  className="hover:text-teal-500 transition-all duration-300 hover:scale-110"
+                  className="transition-all duration-300 hover:scale-110 hover:text-violet-300"
                   aria-label="GitHub"
                 >
                   <Github size={24} />
@@ -102,7 +84,7 @@ function Navbar() {
                 <Link
                   href="https://www.linkedin.com/in/ammar-razzak/"
                   onClick={closeMobileMenu}
-                  className="hover:text-teal-500 transition-all duration-300 hover:scale-110"
+                  className="transition-all duration-300 hover:scale-110 hover:text-violet-300"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={24} />
@@ -110,7 +92,7 @@ function Navbar() {
                 <Link
                   href="https://medium.com/@itsammar"
                   onClick={closeMobileMenu}
-                  className="hover:text-teal-500 transition-all duration-300 hover:scale-110"
+                  className="transition-all duration-300 hover:scale-110 hover:text-violet-300"
                   aria-label="Medium"
                 >
                   <BookText size={24} />
@@ -122,43 +104,25 @@ function Navbar() {
       )}
 
       {/* Desktop Navbar */}
-      <div className="hidden md:flex justify-between items-center">
-        <h1 className="font-bold text-3xl mr-8">
+      <div className="mx-auto hidden max-w-6xl items-center justify-between md:flex">
+        <Link href="/#home" className="mr-8 text-3xl font-bold">
           it&apos;s<span className="text-teal-500">ammar</span>
-        </h1>
+        </Link>
         <div className="navbar-items flex gap-4 text-lg">
-          <div className="navbar-item">
-            <Link href="/" className="hover:text-teal-500 transition-colors duration-300">
-              Home
-            </Link>
-          </div>
-          <div className="navbar-item">
-            <Link href="/" className="hover:text-teal-500 transition-colors duration-300">
-              About
-            </Link>
-          </div>
-          <div className="navbar-item">
-            <Link href="/" className="hover:text-teal-500 transition-colors duration-300">
-              Blog
-            </Link>
-          </div>
-          {/* <div className="navbar-item">
-            <Link href="/" className="hover:text-teal-500 transition-colors duration-300">
-              Research
-            </Link>
-          </div> */}
-          <div className="navbar-item">
-            <Link href="/" className="hover:text-teal-500 transition-colors duration-300">
-              Projects
-            </Link>
-          </div>
+          {navItems.map((item) => (
+            <div className="navbar-item" key={item.href}>
+              <Link href={item.href} className="transition-colors duration-300 hover:text-violet-300">
+                {item.label}
+              </Link>
+            </div>
+          ))}
         </div>
         <div className="navbar-items flex gap-4 text-lg">
           {/* Social Icons */}
           <div className="navbar-item cursor-pointer">
             <Link
               href="https://github.com/itsammar-dev"
-              className="hover:text-teal-500 transition-colors duration-300"
+              className="transition-colors duration-300 hover:text-violet-300"
             >
               <Github /> <span className="sr-only">GitHub</span>
             </Link>
@@ -166,7 +130,7 @@ function Navbar() {
           <div className="navbar-item cursor-pointer">
             <Link
               href="https://www.linkedin.com/in/ammar-razzak/"
-              className="hover:text-teal-500 transition-colors duration-300"
+              className="transition-colors duration-300 hover:text-violet-300"
             >
               <Linkedin /> <span className="sr-only">LinkedIn</span>
             </Link>
@@ -174,14 +138,14 @@ function Navbar() {
           <div className="navbar-item cursor-pointer">
             <Link
               href="https://medium.com/@itsammar"
-              className="hover:text-teal-500 transition-colors duration-300"
+              className="transition-colors duration-300 hover:text-violet-300"
             >
               <BookText /> <span className="sr-only">Medium</span>
             </Link>
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 
