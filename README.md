@@ -73,6 +73,33 @@ after `/link/` on the site:
 Those entries are available as `/link/slides` and `/link/backup`. Only `https`
 and `http` destinations are accepted, and an unknown slug returns a 404.
 
+## SD Rclone OAuth branding
+
+Public informational pages for the household Mac backup setup:
+
+| Google Auth Platform field | Value |
+| --- | --- |
+| App name | `SD Rclone` |
+| User support email | `razzakammar.edu@gmail.com` |
+| Application home page | `https://<your-domain>/apps/sd-rclone` |
+| Application privacy policy link | `https://<your-domain>/apps/sd-rclone/privacy` |
+| Application terms of service link | `https://<your-domain>/apps/sd-rclone/terms` |
+| Authorized domains | Your domain only, without `https://` or a path |
+
+Replace `<your-domain>` with the deployed site's domain. The pages require no
+login, environment variables, or Google credentials. They describe a personal
+rclone setup with direct transfers between owner-controlled devices and Drive;
+keep the policy aligned with the actual setup if its behavior changes.
+
+After deploying the site, save those URLs under **Branding** in Google Auth
+Platform. Use a **Desktop app** OAuth client for rclone. For unattended Drive
+backups, change the external app's publishing status from **Testing** to
+**In production** under **Audience**, then authorize rclone again. Google
+[expires testing-mode refresh tokens after seven days](https://developers.google.com/identity/protocols/oauth2#expiration)
+for Drive access. Publishing and verification are separate; see
+[rclone's current client ID setup instructions](https://rclone.org/drive/#making-your-own-client-id)
+for personal-use guidance.
+
 ## Availability calendar
 
 `/availability` reads a dedicated public Google Calendar on the server and
